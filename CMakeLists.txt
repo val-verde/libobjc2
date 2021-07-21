@@ -193,29 +193,6 @@ set(INSTALL_TARGETS objc)
 # unconditionally (which means that it still defaults to C for .c files).
 set(ENV{CCC_OVERRIDE_OPTIONS} "x/TC x/Gm-")
 
-set_source_files_properties(
-	${libobjc_ASM_SRCS}
-	LANGUAGE C
-	COMPILE_FLAGS "${CMAKE_OBJC_FLAGS} -Xclang -x -Xclang assembler-with-cpp"
-)
-
-set_source_files_properties(
-	${libobjc_CXX_SRCS}
-	LANGUAGE CXX
-	COMPILE_FLAGS "${CMAKE_CXX_FLAGS}"
-)
-
-set_source_files_properties(
-	${libobjc_OBJC_SRCS}
-	COMPILE_FLAGS "${CMAKE_OBJC_FLAGS} -Xclang -x -Xclang objective-c"
-)
-
-set_source_files_properties(
-	${libobjc_OBJCXX_SRCS}
-	COMPILE_FLAGS "${CMAKE_OBJC_FLAGS} -Xclang -x -Xclang objective-c++"
-)
-
-
 #
 # C++ Runtime interaction
 #
