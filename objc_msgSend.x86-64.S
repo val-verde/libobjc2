@@ -193,7 +193,7 @@
 
 12:
 #endif // WITH_TRACING
-#ifdef _WIN64
+#if defined(_MSC_VER) && defined(_WIN64)
 	mov   %r10, %rax
 	jmp   *__guard_dispatch_icall_fptr(%rip)
 #else
