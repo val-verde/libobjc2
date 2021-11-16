@@ -79,8 +79,13 @@
 	ldp    \receiver, x8, [sp], #(ARGUMENT_SPILL_SIZE + 16)
 	br     x9
 6:
+#ifdef _WIN32
+	adrp   x10, SmallObjectClasses
+	ldr    x10, [x10, :lo12:SmallObjectClasses]
+#else
 	adrp   x10, :got:SmallObjectClasses
 	ldr    x10, [x10, :got_lo12:SmallObjectClasses]
+#endif
 	ldr    x9, [x10, x9, lsl #3]
 	b      1b
 	.cfi_endproc
